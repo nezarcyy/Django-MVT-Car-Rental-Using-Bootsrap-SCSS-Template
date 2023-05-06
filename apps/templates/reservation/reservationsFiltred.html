@@ -1,0 +1,66 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+        <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Mes Reservation</h5>
+                            </div>
+                            <div class="card-block table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>immatriculation</th>
+                                                <th>model voiture</th>
+                                                <th>marque</th>
+                                                <th>Date Debut</th>
+                                                <th>Date Fin</th>
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for res in reservations  %}
+                                            <tr>
+                                                <td>{{res.voiture_id}}</td>
+                                                <td>{{res.voiture.model}}</td>
+                                                <td>{{res.voiture.marque}}</td>
+                                                <td>{{res.dateDebut}}</td>
+                                                <td>{{res.dateFin}}</td>
+                                            </tr>
+                                         {%endfor%}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                </div>
+
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

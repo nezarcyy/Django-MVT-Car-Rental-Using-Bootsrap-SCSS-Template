@@ -1,0 +1,113 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+{% csrf_token %}
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+          <!-- [ breadcrumb ] start -->
+
+          <!-- [ breadcrumb ] end -->
+          <div class="main-body">
+              <div class="page-wrapper">
+                  <!-- [ Main Content ] start -->
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <div class="card">
+                              <div class="card-header">
+                                  <h5>Ajouter Voiture</h5>
+                              </div>
+                              <div class="card-body">
+                             {% csrf_token %}
+                                   <form role="form" action="" method="POST" enctype="multipart/form-data">
+                                   <div class="row">
+                                      <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label >nom</label>
+                                                  <input  name="immatriculation" type="text" class="form-control" placeholder="Entrer Immatriculation">
+                                                  <span class="text-error">{{ ajout.immatriculation.errors }}</span>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label>couleur</label>
+                                                  <input  name="couleur" type="text" class="form-control" placeholder="couleur">
+                                                  <span class="text-error">{{ ajout.couleur.errors }}</span>
+                                              </div>
+                                          <div class="form-group">
+                                                  <label >Type</label>
+                                                  <select class="form-control"  name="type_voiture">
+                                                      {% for type in types %}
+                                                      <option value="{{ type.id }}">{{ type.type }}</option>
+                                                      {% endfor %}
+                                                  </select>
+                                              <span class="text-error">{{ ajout.type_voiture.errors }}</span>
+
+                                              </div>
+                                           <div class="form-group">
+                                                  <label>prix de base/jour</label>
+                                                   <input  name="prix_journalier" type="text" class="form-control" placeholder="prix">
+                                                   <span class="text-error">{{ ajout.prix_journalier.errors }}</span>
+
+                                              </div>
+                                              <div class="form-group">
+                                                  <label>photos</label>
+                                                   <input  name="image" type="file" multiple class="form-control" placeholder="photos">
+                                                   <span class="text-error">{{ photos.image.errors }}</span>
+                                              </div>
+
+                                              <div class="form-group">
+                                                <label>Carburant :</label>
+                                                <input  name="carburant" type="text" class="form-control" placeholder="carburant">
+                                                <span class="text-error">{{ ajout.couleur.errors }}</span>
+                                            </div>
+
+                                      </div>
+                                      <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>model</label>
+                                                  <input id="model" name="model" type="text" class="form-control" placeholder="model">
+                                              </div>
+                                              <div class="form-group">
+                                                  <label >marque</label>
+                                                   <select class="form-control"  name="marque">
+                                                      {% for marque in marques %}
+                                                      <option value="{{ marque.id }}">{{ marque.marque }}</option>
+                                                      {% endfor %}
+
+                                                  </select>
+                                                  <span class="text-error">{{ ajout.marque.errors }}</span>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label >Description</label>
+                                                  <textarea  name="description" class="form-control"  rows="5"></textarea>
+                                                  <span class="text-error">{{ ajout.description.errors }}</span>
+                                              </div>
+                                      </div>
+                                  </div>
+                                       <form/>
+                              </div>
+                              <button type="submit" class="btn btn-primary">Enregistrer</button>
+                          </div>
+
+                  </div>
+                  <!-- [ Main Content ] end -->
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
+</div>
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

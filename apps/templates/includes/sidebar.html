@@ -1,0 +1,190 @@
+<!-- [ navigation menu ] start -->
+<nav class="pcoded-navbar">
+    <div class="navbar-wrapper">
+        <div class="navbar-brand header-logo">
+            <a href="\apps\static\assets\images\vhiflex.png" class="b-brand">
+                <div class="b-bg">
+                    <i class="feather feather icon-grid"></i>
+                </div>
+                <span class="b-title">VehiFlex</span>
+            </a>
+            <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+    </div>
+
+        {% if request.user.is_superuser  %}
+
+        <div class="navbar-content scroll-div">
+            <ul class="nav pcoded-inner-navbar">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Panneau Indicateur</label>
+                </li>
+                <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
+                    class="nav-item {% if 'index' in segment %} active {% endif %}">
+                    <a href="/home/index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+                            class="pcoded-mtext">Dashboard</span></a>
+                </li>              
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Géstion des réservations</label>
+                </li>
+                
+                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-check"></i></span><span class="pcoded-mtext">Réservations</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'indexReservations' %}" class="">Toutes les réservations</a></li>
+                            <li class=""><a href="{% url 'chercher' %}" class="">Réserver</a></li>
+                            <li class=""><a href="{% url 'mesRes' %}" class="">Mes réservations</a></li>
+                        </ul>
+                    </li>
+
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Géstion des voitures</label>
+                </li>
+
+                <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
+                    <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Voitures</span></a>
+                    <ul class="pcoded-submenu">
+                        <li class=""><a href="{% url 'voitures' %}" class="">Mes voitures</a></li>
+                        <li class=""><a href="{% url 'ajouterVoiture' %}" class="">Ajouter</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Géstion des utilisateurs</label>
+                </li>
+
+                <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
+                    <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Clients</span></a>
+                    <ul class="pcoded-submenu">
+                        <li class=""><a href="{% url 'clientIndex' %}" class="">Tous les clients</a></li>
+                        <li class=""><a href="{% url 'ajouterClient' %}" class="">Ajouter</a></li>
+                    </ul>
+                </li>
+
+                 <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
+                    <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Employés</span></a>
+                    <ul class="pcoded-submenu">
+                        <li class=""><a href="{% url 'employesIndex' %}" class="">Tous les employés</a></li>
+                        <li class=""><a href="{% url 'ajouterEmploye' %}" class="">Ajouter</a></li>
+                    </ul>
+                </li>                     
+
+            {% elif not request.user.is_superuser  and  request.user.is_staff %}
+
+            <div class="navbar-content scroll-div">
+                <ul class="nav pcoded-inner-navbar">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Panneau Indicateur</label>
+                    </li>
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
+                        class="nav-item {% if 'index' in segment %} active {% endif %}">
+                        <a href="/home/index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+                                class="pcoded-mtext">Dashboard</span></a>
+                    </li>
+
+
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Géstion des réservations</label>
+                    </li>
+
+                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-check"></i></span><span class="pcoded-mtext">Réservations</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'indexReservations' %}" class="">Toutes les réservations</a></li>
+                            <li class=""><a href="{% url 'chercher' %}" class="">Réserver</a></li>
+                            <li class=""><a href="{% url 'mesRes' %}" class="">Mes réservations</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Géstion des voitures</label>
+                    </li>
+
+                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Voitures</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'voitures' %}" class="">Mes voitures</a></li>
+                            <li class=""><a href="{% url 'ajouterVoiture' %}" class="">Ajouter</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Géstion des Clients</label>
+                    </li>
+
+                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Clients</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'clientIndex' %}" class="">Tous les clients</a></li>
+                            <li class=""><a href="{% url 'ajouterClient' %}" class="">Ajouter</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Besoin d'aide?</label>
+                    </li>   
+
+                    <li data-username="Support Page" class="nav-item ">
+                        <a target="_blank" href="page-blank.html" class="nav-link">
+                            <span class="pcoded-micon">
+                                <i class="feather icon-headphones"></i>
+                            </span>
+                            <span class="pcoded-mtext">Contactez l'administrateur</span>
+                        </a>
+                    </li>   
+            {% elif not request.user.is_staff and  not request.user.is_superuser  %}
+
+            <div class="navbar-content scroll-div">
+            <ul class="nav pcoded-inner-navbar">
+            
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Recherche des voitures disponibles</label>
+                </li>  
+            <li data-username="Disabled Menu" class="nav-item">
+                <a href="{% url 'chercher' %}" class="nav-link">
+                    <span class="pcoded-micon"><i class="feather icon-search"></i></span><span class="pcoded-mtext">Chercher Voiture</span>
+                </a>
+            </li>
+
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Catalogue des voitures</label>
+                </li> 
+
+              <li data-username="Disabled Menu" class="nav-item">
+                <a href="{% url 'voitures' %}" class="nav-link">
+                    <span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Nos Voitures</span>
+                </a>
+            </li>
+
+            <li class="nav-item pcoded-menu-caption">
+                <label>Consultez Les Résesvations</label>
+            </li> 
+
+            <li data-username="Disabled Menu" class="nav-item">
+                <a href="{% url 'mesRes' %}" class="nav-link ">
+                    <span class="pcoded-micon"><i class="feather icon-check"></i></span><span class="pcoded-mtext">Mes Reservations</span>
+                </a>
+            </li>
+
+            <li class="nav-item pcoded-menu-caption">
+                <label>Besoin d'aide?</label>
+            </li>   
+
+            <li data-username="Support Page" class="nav-item ">
+                <a target="_blank" href="page-blank.html" class="nav-link">
+                    <span class="pcoded-micon">
+                        <i class="feather icon-headphones"></i>
+                    </span>
+                    <span class="pcoded-mtext">Contactez Nous</span>
+                </a>
+            </li>   
+
+            {% endif %}
+
+            </ul> 
+        </div>
+    </div>
+</nav>
+                    
+
+                
+<!-- [ navigation menu ] end -->

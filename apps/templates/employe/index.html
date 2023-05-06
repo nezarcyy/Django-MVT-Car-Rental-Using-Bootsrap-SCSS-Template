@@ -1,0 +1,64 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+          <!-- [ breadcrumb ] start -->
+
+          <!-- [ breadcrumb ] end -->
+          <div class="main-body">
+              <div class="page-wrapper">
+                  <!-- [ Main Content ] start -->
+                  <div class="row">
+        <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>tous les employés</h5>
+                            </div>
+                            <div class="card-block table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>nom</th>
+                                                <th>prenom</th>
+                                                <th>date d'embauche</th>
+                                                <th>salaire</th>
+                                                <th></th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for emp in employees  %}
+                                            <tr>
+                                                <td>{{emp.user.first_name}}</td>
+                                                <td>{{emp.user.last_name}}</td>
+                                                <td>{{emp.date_embauche}}</td>
+                                                <td>{{emp.salaire}}</td>
+                                                 <td><a style="border-radius:25% 10%;" href="{% url 'supprimerEmploye' emp.id %}" class="label theme-bg text-white f-12">Supprimer</a><a style="border-radius:25% 10%;" href="{% url 'modifierEmploye' emp.id  %}" class="label theme-bg2 text-white f-12">Modifier</a></td>
+                                            </tr>
+                                         {%endfor%}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+                    </div>{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

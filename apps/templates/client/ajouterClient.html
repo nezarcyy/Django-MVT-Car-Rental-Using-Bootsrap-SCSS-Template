@@ -1,0 +1,98 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+          <!-- [ breadcrumb ] start -->
+
+          <!-- [ breadcrumb ] end -->
+          <div class="main-body">
+              <div class="page-wrapper">
+                  <!-- [ Main Content ] start -->
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <div class="card">
+                              <div class="card-header">
+                                  <h5>Ajouter Client</h5>
+                              </div>
+                              <div class="card-body">
+
+                                   <form  action="{% url 'ajouterClient'%}" method="POST" enctype="multipart/form-data">
+                                       {% csrf_token %}
+                                   <div class="row">
+                                      <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label >nom</label>
+                                                  {{user.last_name}}
+                                                  <span class="text-error">{{ user.last_name.errors }}</span>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label>pseudo</label>
+                                                 {{ user.username }}
+                                                  <span class="text-error">{{ user.username.errors }}</span>
+                                              </div>
+                                          <div class="form-group">
+                                                  <label >Telephone</label>
+                                                  {{ client.telephone }}
+                                              <span class="text-error">{{ client.telephone.errors }}</span>
+
+                                              </div>
+
+
+
+                                      </div>
+                                      <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>prenom</label>
+                                                  {{ user.first_name }}
+                                                  {{ user.first_name.errors }}
+                                              </div>
+                                              <div class="form-group">
+                                                  <label >email</label>
+                                                  {{ user.email }}
+                                                  <span class="text-error">{{ user.email.errors }}</span>
+                                              </div>
+                                          <div class="form-group">
+                                                  <label>mot de passe</label>
+                                                   {{ user.password1 }}
+                                                   <span class="text-error">{{ user.password1.errors }}</span>
+
+                                              </div>
+                                            <div class="form-group">
+                                                  <label>Verification de mot de passe</label>
+                                                   {{ user.password2 }}
+                                                   <span class="text-error">{{ user.password2.errors }}</span>
+
+                                              </div>
+
+                                      </div>
+                                  </div>
+                                       <form/>
+                              </div>
+                              <button type="submit" class="btn btn-primary">Enregistrer</button>
+                          </div>
+
+                  </div>
+                  <!-- [ Main Content ] end -->
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+</div>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

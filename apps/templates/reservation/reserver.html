@@ -1,0 +1,78 @@
+
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<link rel="stylesheet" href="../css/form.css">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+
+  <div class="pcoded-content">
+  <div class="pcoded-inner-content">
+      <!-- [ breadcrumb ] start -->
+
+      <!-- [ breadcrumb ] end -->
+      <div class="main-body">
+          <div class="page-wrapper">
+              <!-- [ Main Content ] start -->
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="card">
+                          <div class="card-header">
+                              <h5>Chercher une voiture</h5>
+                          </div>
+                          <div class="card-body">
+                               <form  method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                               <div class="row">
+                                  <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Date Debut</label>
+                                                    <input class="form-control" type="date" id="DateDebut" name="dateDebut"
+                                                   value="2023-05-05"
+                                                   min="2023-05-05" >
+                                            </div>
+
+
+                                  </div>
+                                  <div class="col-md-6">
+                                           <div class="form-group">
+                                                <label>Date Fin</label>
+                                                    <input class="form-control" type="date" id="DateFin" name="dateFin"
+                                                   value="2023-05-05"
+                                                   min="2023-05-05" >
+                                            </div>
+
+                                  </div>
+                              </div>
+                                   <form/>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Chercher</button>
+                      </div>
+
+              </div>
+              <!-- [ Main Content ] end -->
+          </div>
+      </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+{% endblock javascripts %}

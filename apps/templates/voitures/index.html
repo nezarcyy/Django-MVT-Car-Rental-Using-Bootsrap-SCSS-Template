@@ -1,0 +1,89 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Tous les voitures</h5>
+                                        </div>
+                                        <div class="card-block table-border-style">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>immatriculation</th>
+                                                            <th>Model</th>
+                                                            <th>Marque</th>
+                                                            <th>Type</th>
+                                                            <th>Carburant</th>
+                                                            <th>Kilometrage</th>
+                                                            <th>Prix de location</th>
+                                                            <th>Disponibilté</th>
+                                                            <th></th>
+            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% for voiture in voitures %}
+                                                        <tr>
+                                                            <td>{{voiture.immatriculation}}</td>
+                                                            <td>{{voiture.model}}</td>
+                                                            <td>{{voiture.marque}}</td>
+                                                            <td>{{voiture.type_voiture_id}}</td>
+                                                            <td>{{voiture.type_carburant}}</td>
+                                                            <td>{{voiture.etat_carburant}}</td>
+                                                            <td>{{voiture.prix_journalier}}</td>
+                                                            {% if voiture.dispo %}
+                                                             <td >
+                                                                 <h6 class="m-0 text-c-green">Disponible</h6>
+                                                            </td>
+            
+                                                            {% else %}
+                                                             <td>
+                                                                <h6 class="m-0 text-c-red">Occupée</h6>
+                                                            </td>
+                                                            {% endif %}
+                                                             <td>
+                                                                 {% if request.user.is_staff or request.user.is_superuser %}
+                                                                 <a style="border-radius:25% 10%;" href="{% url 'supprimerVoiture' voiture.immatriculation %}" class="label theme-bg text-white f-12">Supprimer</a>
+                                                                 <a style="border-radius:25% 10%;" href="{% url 'modifierVoiture' voiture.immatriculation %}" class="label theme-bg2 text-white f-12">Modifier</a></td>
+                                                                {% endif %}
+                                                        </tr>
+                                                    {%endfor%}
+            
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
